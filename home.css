@@ -1,0 +1,1203 @@
+:root {
+--background-color: rgb(254, 255, 254);
+--text-decoration-color: rgb(71, 129, 43);
+--text-decoration-color: black;
+--main-color: rgb(185, 207, 184);
+}
+body, html{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* Enables smooth scrolling between sections */
+    font-family: Arial, sans-serif;
+    background-color: rgb(254, 255, 254);
+}
+/* Header Styling */
+.header {
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between logo and navbar */
+    align-items: center;
+    padding: 0px 0px; /* Adjust padding for spacing */
+    background-color: rgb(185, 206, 185); /* Background color */
+    z-index: 10; /* Ensure header is above other content */
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    margin-left: 90px; /* Remove any extra left margin */
+    padding: 0px; /* Optional: slight padding for spacing */
+    align-items: center; /* Center the logo vertically */
+}
+
+.logo img {
+    width: 60px; /* Adjust logo size */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits nicely */
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Align navbar items to the right */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    padding-right: 100px;
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: black;
+    font-size: 19px;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    position: relative;
+}
+
+/* Hover and Active States */
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    font-weight: bold;
+    color: black;
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::after,
+.navbar ul li a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+
+.section {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    box-sizing: border-box;
+  }
+.home {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full screen height */
+    padding: 20px;
+    color: rgb(71, 129, 43);
+}
+.home h1{
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-left: 100px;
+    margin-top: 150px;
+    width: 100%;
+}
+.content p{
+    font-size: 22px;
+    text-align: center;
+    text-align: left;
+    margin-bottom: 190px;
+    margin-left: 100px;
+    width: 180%;
+}
+.content2 p{
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    bottom: 250px;
+    left: 390px;
+    width: 100%;
+    z-index: 3;
+}
+.stadium-container {
+    position: relative; /* Required for absolute positioning of child elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Ensure it takes the full height of the parent */
+    width: 100%; /* Ensure it takes the full width of the parent */
+    overflow: visible; /* Allow the larger stadiums to be fully visible */
+}
+
+/* yellow Stadium (backmost) */
+.stadium.three-stadium {
+    position: absolute;
+    background-color: rgb(185, 207, 184); /* Blue color */
+    border-radius: 190px; /* Larger radius than the red stadium */
+    height: 300px; /* Larger height */
+    width: 325px; /* Larger width */
+    z-index: 0; /* Positioned behind the red stadium */
+    top: 67%; /* Centered vertically */
+    left: 51.5%; /* Centered horizontally */
+    transform: translate(-50%, -50%); /* Center the blue stadium */
+}
+
+/* Blue Stadium (Backmost) */
+.stadium.two-stadium {
+    position: absolute;
+    background-color: rgb(185, 207, 184); /* Blue color */
+    border-radius: 300px; /* Larger radius than the red stadium */
+    height: 465px; /* Larger height */
+    width: 340px; /* Larger width */
+    z-index: 0; /* Positioned behind the red stadium */
+    top: 48%; /* Centered vertically */
+    left: 48%; /* Centered horizontally */
+    transform: translate(-50%, -50%); /* Center the blue stadium */
+    
+  
+}
+
+/* Red Stadium (Middle) */
+.stadium.one-stadium {
+    position: absolute;
+    background-color: rgb(255, 255, 255); /* Red color */
+    border-radius: 250px; /* Slightly larger than the original */
+    height: 490px; /* Slightly larger height */
+    width: 350px; /* Slightly larger width */
+    z-index: 1; /* Positioned between blue and original stadiums */
+    top: 50%; /* Centered vertically */
+    left: 50%; /* Centered horizontally */
+    transform: translate(-50%, -50%);
+}
+
+/* Original Green Stadium */
+.stadium {
+    position: relative;
+    background-color: rgb(185, 207, 184); /* Original green color */
+    border-radius: 200px;
+    height: 470px;
+    width: 330px;
+    overflow: hidden;
+    z-index: 2; /* Above the red and blue stadiums */
+}
+
+.stadium img {
+    width: 100%;
+    height: 100%;
+    border-radius: 200px;
+    object-fit: cover;
+}
+
+
+.shapes-container {
+    display: flex;
+    gap: 5px; /* Space between UI and UX shapes */
+    position: absolute; /* Allow positioning */
+    left: 910px; /* Move it left from the viewport edge */
+    top: 330px; /* Adjust vertical position as needed */
+    z-index: 3;
+}
+
+/* Base shape styling */
+.shape {
+    width: 100px;
+    height: 170px;
+    background-color: rgb(199, 255, 169);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(199, 255, 169);
+    margin-block-end: 200px;
+    
+    
+}
+
+/* UI Shape with rounded top-left corner */
+.shape-ui {
+    border-top-left-radius: 50px;
+}
+.shape-ui p{
+    color: black;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-size: 50px;
+    animation: move-up 1.5s infinite alternate; /* Apply upward animation */
+}
+
+/* UX Shape with rounded top-right corner */
+.shape-ux {
+    border-bottom-right-radius: 50px;
+}
+.shape-ux p{
+    color: black;
+    margin-right: 0px;
+    margin-top: 17px;
+    font-size: 50px;
+    animation: move-down 1.5s infinite alternate; /* Apply animation */
+}
+@keyframes move-up {
+    0% {
+        transform: translateY(20px); /* Original position */
+    }
+    100% {
+        transform: translateY(-20px); /* Move up */
+    }
+}
+
+/* Keyframes for UX moving down */
+@keyframes move-down {
+    0% {
+        transform: translateY(-20px); /* Original position */
+    }
+    100% {
+        transform: translateY(20px); /* Move down */
+    }
+}
+
+/* about section */
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: rgb(254, 255, 254);
+}
+  
+.about-container {
+    display: flex;
+    margin-right: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 0px; /* Space between stadium shape and content */
+}
+
+/* Wrapper for Stadium Containers */
+.stadium-wrapper {
+    position: relative; /* Hold the different stadiums */
+}
+
+/* Red Stadium (Larger than the original one) */
+.stadium.first-stadium {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: 200px;
+    height: 490px; /* Slightly larger height */
+    width: 350px; /* Slightly larger width */
+    z-index: 2;
+    top: 284px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Blue Stadium (Larger than the red one) */
+.stadium.second-stadium {
+    position: absolute;
+    background-color: rgb(185, 207, 184); /* Blue color */
+    border-radius: 300px; /* Larger radius than the red stadium */
+    height: 460px; /* Larger height */
+    width: 340px; /* Larger width */
+    z-index: 1; /* Positioned behind the red stadium */
+    top: 52%; /* Centered vertically */
+    left: 45%; /* Centered horizontally */
+    transform: translate(-50%, -50%); /* Center the blue stadium */
+    animation: popOut 1.2s ease-out forwards; /* Add animation */
+}
+
+.stadium.third-stadium {
+    position: absolute;
+    background-color: rgb(185, 207, 184); /* Blue color */
+    border-radius: 190px; /* Larger radius than the red stadium */
+    height: 300px; /* Larger height */
+    width: 325px; /* Larger width */
+    z-index: 0; /* Positioned behind the red stadium */
+    top: 378px; /* Centered vertically */
+    left: 54%; /* Centered horizontally */
+    transform: translate(-50%, -50%); /* Center the blue stadium */
+    animation: popOut 1.2s ease-out forwards; /* Add animation with delay */
+}
+
+
+
+@keyframes popOut {
+    0% {
+        transform: translate(-50%, -50%) scale(0.7); /* Start small and behind */
+        opacity: 0; /* Start as invisible */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1); /* Scale up slightly */
+        opacity: 1; /* Make it partially visible */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* Full size and opacity */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Profile Image Stadium */
+.about-stadium-container {
+    background-color: rgb(185, 207, 184);
+    border-radius: 200px;
+    height: 470px;
+    width: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    overflow: hidden; /* Ensures the image doesn't overflow the stadium shape */
+    position: relative;
+    margin-left: -0px;
+    z-index: 3;
+}
+
+/* Profile Image */
+.stadium-container-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    object-position: 40% center;
+}
+
+.about .second-stadium,
+.about .third-stadium {
+  display: none; /* Hidden by default */
+}
+
+.about-content {
+    margin-left: 100px;
+    flex: 1;
+}
+  
+.about-content h1 {
+    text-align: center;
+    color: rgb(71, 129, 43);
+    margin-left: 10%;
+    margin-bottom: 20px;
+    font-size: 60px;
+    font-weight: 150;
+}
+
+.about-content h3 {
+    color: rgb(71, 129, 43);
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Style for the specific h3 elements in the About section */
+.education-title {
+    font-size: 28px; /* Change the size of the specific h3 */
+    color: #4B8E4B; /* Change color if needed */
+    margin-bottom: 20px; /* Adjust positioning */
+    margin-left: 10%;
+    text-align: center; /* Center the text */
+}
+
+.education-heading {
+    display:flex;
+    margin-left: 110px;
+    font-size: 20px; /* Size for the Education heading */
+    font-weight: bold; /* Keep it bold */
+    margin-top: 10px; /* Space below */
+}
+
+.skills-heading {
+    margin-left: 50px;
+    font-size: 20px; /* Size for the Skills heading */
+    font-weight: bold; /* Keep it bold */
+    margin-top: 8px; /* Space below */
+    width: 100%;
+}
+
+.tools-heading {
+    margin-left: 34px;
+    font-size: 20px; /* Size for the Tools heading */
+    font-weight: bold; /* Keep it bold */
+    margin-bottom: 10px; /* Space below */
+}
+
+.about-content p {
+    color: rgb(71, 129, 43);
+    font-size: 16px;
+    line-height: 1.5;
+}
+  
+.about-info {
+    color: rgb(71, 129, 43);
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+/* Specific styles for individual paragraphs */
+.about-content .education-description {
+    font-size: 18px;
+    margin-left: 10px;
+    line-height: 1.3;
+    color: rgb(71, 129, 43);
+    text-align:center;
+    width: 100%;
+}
+.about-content .skills-description {
+    font-size: 17px;
+    margin-left: 94px;
+    line-height: 1.4;
+    color: rgb(71, 129, 43);
+    text-align: left;
+    width: 100%;
+}
+
+.about-content .tools-description {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: rgb(71, 129, 43);
+    text-align: left;
+    margin-left: 96px;
+    width: 100%;
+}
+.education-details {
+    display: block;
+    overflow: hidden;
+    margin-left: 40px;
+    font-size: 18px; /* Size for the Education heading */
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+}
+.education-details ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+.education-details li {
+    display: flex;
+    flex-direction: column; /* Arrange year, school, and degree vertically */
+    align-items: center; /* Center-align each entry */
+    margin-bottom: 20px; /* Space between each education entry */
+    padding-bottom: 20px;
+    position: relative;
+}
+
+/* Add vertical line under each section */
+.education-details li::after {
+    content: "";
+    position: absolute;
+    bottom: -13px; /* Position the line below each item */
+    height: 30px; /* Adjust height of the line between sections */
+    width: 2px; /* Thickness of the line */
+    background-color: rgb(71, 129, 43); /* Color of the line */
+}
+/* Remove line for the last item */
+.education-details li:last-child::after {
+    display: none;
+}
+
+/* Optional: Style each individual part */
+.education-details .year {
+    font-weight: normal;
+    margin-bottom: 2px; /* Space between year and school */
+}
+
+.education-details .school {
+    font-weight: bold;
+    margin-bottom: 2px; /* Space between school and degree */
+}
+
+.skills {
+    margin-right:100px;
+    width: 200px;
+}
+  
+.education h3,
+.skills h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.education ul {
+    list-style-type: none;
+    padding: 0;
+}
+  
+.education li {
+    margin-bottom: 15px;
+}
+  
+.education .year {
+    font-weight: bold;
+    color: #4B8E4B;
+}
+  
+.skills p {
+    line-height: 1.6;
+}
+
+
+
+/* resume section */
+
+.resume {
+    position: relative;
+    flex-direction: column; /* Aligns left and right columns horizontally */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding/border are included in width */
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+
+.resume-heading{
+    text-align: center;
+    padding-bottom: 20px;
+    color: #4b9c41;
+    margin-top: 20px;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.resume-content {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Restrict max-width to prevent overflow */
+    
+}
+
+.left-column, .right-column {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+
+.left-column {
+    border-right: 2px solid #4b9c41;
+}
+
+.line-top-left {
+    position: relative;
+    top: 0px;
+    left: 40px;
+    width: 200px;
+    height: 200px;
+    border-top: 4px solid #a8d18d; /* Green color for the line */
+    border-left: 4px solid #a8d18d;
+}
+
+
+
+.profile-photo img {
+    align-items: center;
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    display: flex;
+    margin: 0 auto;
+    border: 2px solid #4b9c41;
+    margin-top: -150px;
+}
+
+.profile-photo{
+    position: relative;
+}
+
+.profile-photo::before {
+    content: "";
+    position: absolute;
+    width: 210px; /* Adjust slightly larger than .profile-photo */
+    height: 210px;
+    border-radius: 100%;
+    border: 2px solid black; /* Adjust thickness and color */
+    border-left-color: transparent; /* Hide the left side */
+    border-bottom-color: transparent; /* Hide the bottom */
+    top: 30px; /* Adjust to position around the image */
+    left: 176px;
+    transform: rotate(225deg); /* Rotate the half-circle */
+    animation: rotateCircle 3s linear infinite; /* Infinite rotation animation */
+}
+
+/* Keyframes for continuous rotation */
+@keyframes rotateCircle {
+    0% {
+        transform: rotate(225deg); /* Initial position */
+    }
+    100% {
+        transform: rotate(585deg); /* Rotates 360 degrees from the start */
+    }
+}
+
+.profile-heading {
+    text-align: center;
+    color: #000000;
+    margin-top: 50px;
+    background-color: #a8d18d;
+    padding-top: 20px; /* Adjust this to move text down */
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.1em;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.profile-heading h2{
+    margin-top: 0; /* Ensure there's no extra margin on the text */
+    font-weight: bold;
+}
+
+.resume-contact {
+    margin-top: 20px;
+    
+}
+
+.resume-contact h3 {
+    background-color: #a8d18d;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.resume-contact-details {
+    padding-left: 20px; /* Space between line and text */
+    border-left: 3px solid #000000; /* Continuous line for paragraph section */
+    margin-left: 100px;
+}
+.resume-contact p {
+    margin-left: 0px;
+    margin-right: 80px;
+}
+
+.label {
+    text-decoration: underline; /* Underline just the label */
+    font-weight: bold; /* Optional: makes the label bold */
+}
+
+/* General styling for the education section */
+.resume-education h3 {
+    background-color: #a8d18d;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-left: 70px;
+    margin-right: 70px;
+    font-weight: bold;
+}
+
+/* Style for each education item */
+.education-item {
+    position: relative;
+    text-align: center;
+    margin: 0;
+}
+
+/* Centering and styling each paragraph */
+.education-item p {
+    margin-bottom: 30px; /* Space between each item */
+    padding: 10px;
+}
+
+/* Vertical line with animation */
+.education-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -25px; /* Position it below the item */
+    transform: translateX(-50%);
+    width: 3px; /* Thickness of the line */
+    height: 0; /* Start with height 0 for animation */
+    background-color: #4b9c41; /* Green color */
+    animation: riseLine 1s ease-in-out infinite; /* Infinite animation */
+    animation-delay: calc(0.5s * var(--item-index)); /* Delay each item based on index */
+}
+
+/* Remove the line for the last item */
+.education-item:last-child::after {
+    display: none;
+}
+
+/* Keyframes for the "rising up" effect */
+@keyframes riseLine {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 30px; /* Full length of the line */
+    }
+}
+
+.resume-school{
+    color: #4B8E4B;
+    font-weight: bold;
+}
+
+.resume-interests h3 {
+    background-color: #a8d18d;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-left: 70px;
+    margin-right: 70px;
+    font-weight: bold;
+}
+
+.interests {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.interest-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.circle {
+    width: 70px; /* Circle size */
+    height: 70px;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    overflow: hidden; /* Ensures the image stays within the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.circle img {
+    width: 60px; /* Adjust to control image size */
+    height: 60px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+
+.circle.basketball img{
+    width: 45px; /* Adjust to control image size */
+    height: 45px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+.circle.photography img{
+    width: 45px; /* Adjust to control image size */
+    height: 45px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+
+.circle.painting img{
+    width: 45px; /* Adjust to control image size */
+    height: 45px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+
+.circle.music img{
+    margin-bottom: 5px;
+    width: 55px; /* Adjust to control image size */
+    height: 55px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+
+/* Text label below each icon */
+.interest-item p {
+    margin-top: 8px; /* Space between circle and text */
+    color: #4b9c41;
+    font-weight: normal;
+    font-size: 1.0em;
+}
+
+/* right side*/
+
+.resume-summary h3{
+    margin-left: 70px;
+    margin-right: 70px;
+    font-weight: bold;
+    background-color: #a8d18d;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.resume-summary p {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 70px;
+    margin-right: 70px;
+    line-height: 1.5;
+}
+
+
+
+.resume-project h3{
+    background-color: #a8d18d;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-left: 70px;
+    margin-right: 70px;
+    font-weight: bold;
+}
+
+.right-column ul {
+    padding-left: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 35px;
+    margin-bottom: 40px;
+}
+
+.right-column ul li {
+    margin-bottom: 10px;
+}
+
+.resume-skills h3{
+    background-color: #a8d18d;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-left: 70px;
+    margin-right: 70px;
+    font-weight: bold;
+}
+
+.resume-skills p{
+    margin-top: 35px;
+    margin-bottom: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+/* Section padding to avoid overlap with navigation */
+.resume-tools {
+    gap: 15px;
+    justify-content: space-around;
+    margin-top: 40px; /* Increased the margin from the top */
+    padding-top: 20px; /* Added padding to create space from the top */
+}
+
+/* Title Styling */
+.resume-tools h3 {
+    background-color: #a8d18d;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-left: 70px;
+    margin-right: 70px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Tool items container styling */
+.tools {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Individual tool item styling */
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+/* Wrapper for icon to create dual border effect */
+.icon-wrapper {
+    position: relative;
+    width: 82px; /* Outer green border size */
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a8d18d; /* Green outer border color */
+    border-radius: 50%;
+    z-index: 0; /* Ensure it stays behind the icon */
+}
+
+/* Middle black border */
+.icon-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 77px; /* Slightly smaller to leave some green border visible */
+    height: 77px;
+    background-color: transparent; /* Transparent center to reveal green border */
+    border: 1.5px solid black; /* Black border centered within green border */
+    border-radius: 50%;
+    z-index: 1; /* Layered above the outer green border */
+}
+
+/* Inner white circle */
+.icon-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 68px; /* Smaller to leave black border visible */
+    height: 68px;
+    background-color: white; /* Inner white color */
+    border-radius: 50%;
+    z-index: 2; /* Layered above the black border */
+}
+
+/* Image styling */
+.icon-wrapper img {
+    width: 40px; /* Icon size */
+    height: 40px;
+    object-fit: contain;
+    z-index: 3; /* Ensure it stays above all borders */
+    position: relative;
+}
+
+/* Text under the icon */
+.tool-item p {
+    color: #4b9c41; /* Green color for the text */
+    font-weight: normal;
+    font-size: 0.9em;
+    margin: 0;
+    margin-top: auto; /* Space between icon and text */
+    text-align: center;
+    max-width: 80px; /* Limit width to prevent overflowing */
+    word-wrap: break-word; /* Break long words to fit within max-width */
+    line-height: 1.2; /* Adjust line height for better readability */
+}
+
+
+/* Container for the L-shape */
+.bottom-right-L-container {
+    display: flex;
+    position:absolute;
+    bottom: 20px; /* Distance from the bottom of the resume */
+    right: 70px; /* Distance from the right of the resume */
+    
+}
+
+.horizontal-line {
+    width: 200px;
+    height: 4px;
+    background-color: #a8d18d;
+}
+
+.vertical-line {
+    width: 4px;
+    height: 200px;
+    background-color: #a8d18d;
+    margin-top: -196px;
+}
+
+/*work section*/
+
+.work {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.work-heading {
+    font-size: 48px;
+    font-weight: bold;
+    color: #4b9c41;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.work-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+.card {
+    width: 300px;
+    background-color: #a8d18d;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Animation keyframes */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Adding delays for each card to control appearance order */
+.card:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s; /* Second card appears first */
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Active state to trigger animation */
+.card.active {
+    opacity: 1;
+    transform: scale(1) translateY(0); /* Reset to normal size and position */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    background-color: #d3d5d2;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.card-content {
+    text-align: left;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.card-content p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.see-more {
+    margin-top: 10px;
+    margin-left: 77px;
+    background-color: #76a972; /* Green background for the button */
+    color: white; /* Text color */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Added transition for smooth scaling */
+    text-decoration: none; /* Ensure link has no underline */
+    display: inline-block; /* Make sure the link behaves like a button */
+}
+
+.see-more:hover {
+    background-color: #748875; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Optional: If you want the link to look like a button even when clicked */
+.see-more:active {
+    transform: scale(0.98); /* Slight shrink when clicked */
+}
+
+
+/* contact section */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Heading for the contact section */
+.contact-me-heading {
+    font-size: 40px;
+    color: #3c873a;
+    margin-bottom: 20px;
+}
+
+/* Paragraph under the heading */
+.contact-me-paragraph {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Contact info container */
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Aligns items in a vertical column */
+    gap: 20px; /* Space between each contact item */
+    align-items: center; /* Centers the items in the container */
+    margin-top: 20px;
+}
+
+/* Individual contact item styles */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Icon size */
+.contact-item img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Link styles */
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-item a:hover {
+    color: #3c873a;
+}
