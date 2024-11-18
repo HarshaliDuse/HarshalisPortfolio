@@ -2,15 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
 :root {
---background-color: rgb(254, 255, 254);
---text-decoration-color: rgb(71, 129, 43);
---text-decoration-color: black;
---main-color: rgb(185, 207, 184);
+    --background-color: rgb(254, 255, 254);
+    --text-decoration-color: rgb(71, 129, 43);
+    --text-decoration-color: black;
+    --main-color: rgb(185, 207, 184);
 }
-body, html{
+
+body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth; /* Enables smooth scrolling between sections */
@@ -18,6 +20,7 @@ body, html{
     background-color: rgb(254, 255, 254);
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
+
 /* Header Styling */
 .header {
     height: 80px;
@@ -98,61 +101,65 @@ body, html{
     transform-origin: bottom left;
 }
 
-
-
 .section {
-    height: 100vh; /* Full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
     box-sizing: border-box;
-  }
+}
+
 .home {
-    margin-top: 100px;
+    
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    
+}
+.home-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Full screen height */
-    padding: 20px;
+    flex-direction: column;
+}
+
+.content-container {
+    position: relative;
+    right: 300px;
+    top: 150px;
+}
+
+.home-heading h1{
+    
+    
+    position: relative;
+    font-size: 50px;
+    font-weight:bold;
+    line-height: 1.2;
     color: rgb(71, 129, 43);
 }
-.home h1{
-    font-size: 50px;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-left: 100px;
-    margin-top: 150px;
-    width: 100%;
-}
-.content p{
+
+.home-firstparagraph {
+    
     font-size: 22px;
     text-align: center;
     text-align: left;
-    margin-bottom: 190px;
-    margin-left: 100px;
-    width: 180%;
+    color: rgb(71, 129, 43);
 }
-.content2 p{
-    text-align: center;
-    font-size: 18px;
-    position: absolute;
-    bottom: 260px;
-    left: 390px;
-    width: 100%;
-    z-index: 3;
-}
+
+
+
+/* Stadium Container */
 .stadium-container {
     position: relative; /* Required for absolute positioning of child elements */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Ensure it takes the full height of the parent */
-    width: 100%; /* Ensure it takes the full width of the parent */
     overflow: visible; /* Allow the larger stadiums to be fully visible */
+    left: 210px;
+    top: px;
 }
 
-/* yellow Stadium (backmost) */
+/* Yellow Stadium (backmost) */
 .stadium.three-stadium {
     position: absolute;
     background-color: rgb(185, 207, 184); /* Blue color */
@@ -160,9 +167,9 @@ body, html{
     height: 300px; /* Larger height */
     width: 325px; /* Larger width */
     z-index: 0; /* Positioned behind the red stadium */
-    top: 67%; /* Centered vertically */
+    top: 57%; /* Centered vertically */
     left: 51.5%; /* Centered horizontally */
-    transform: translate(-50%, -50%); /* Center the blue stadium */
+    transform: translate(-45%, -18%); /* Center the blue stadium */
 }
 
 /* Blue Stadium (Backmost) */
@@ -172,12 +179,10 @@ body, html{
     border-radius: 300px; /* Larger radius than the red stadium */
     height: 465px; /* Larger height */
     width: 340px; /* Larger width */
-    z-index: 0; /* Positioned behind the red stadium */
+    z-index: 1; /* Positioned behind the red stadium */
     top: 48%; /* Centered vertically */
-    left: 48%; /* Centered horizontally */
-    transform: translate(-50%, -50%); /* Center the blue stadium */
-    
-  
+    left: 58%; /* Centered horizontally */
+    transform: translate(-55%, -52%); /* Center the blue stadium */
 }
 
 /* Red Stadium (Middle) */
@@ -187,7 +192,7 @@ body, html{
     border-radius: 250px; /* Slightly larger than the original */
     height: 490px; /* Slightly larger height */
     width: 350px; /* Slightly larger width */
-    z-index: 1; /* Positioned between blue and original stadiums */
+    z-index: 2; /* Positioned between blue and original stadiums */
     top: 50%; /* Centered vertically */
     left: 50%; /* Centered horizontally */
     transform: translate(-50%, -50%);
@@ -195,13 +200,13 @@ body, html{
 
 /* Original Green Stadium */
 .stadium {
-    position: relative;
+    position: absolute;
     background-color: rgb(185, 207, 184); /* Original green color */
     border-radius: 200px;
     height: 470px;
     width: 330px;
     overflow: hidden;
-    z-index: 2; /* Above the red and blue stadiums */
+    z-index: 3; /* Above the red and blue stadiums */
 }
 
 .stadium img {
@@ -211,14 +216,29 @@ body, html{
     object-fit: cover;
 }
 
+.content2 {
+    position: relative;
+    display:flex;
+    left: 410px;
+    top: -530px;
+}
 
+.content2 p {
+    text-align: center;
+    font-size: 18px;
+    z-index: 3;
+    color: rgb(71, 129, 43);
+    
+}
+
+/* Shapes Container */
 .shapes-container {
+    position: relative;
     display: flex;
     gap: 5px; /* Space between UI and UX shapes */
-    position: absolute; /* Allow positioning */
-    left: 910px; /* Move it left from the viewport edge */
-    top: 330px; /* Adjust vertical position as needed */
-    z-index: 3;
+    left: 410px;
+    bottom: 70px;
+    z-index: 5;
 }
 
 /* Base shape styling */
@@ -243,8 +263,7 @@ body, html{
 }
 .shape-ui p{
     color: black;
-    margin-right: 0px;
-    margin-bottom: 0px;
+    
     font-size: 50px;
     animation: move-up 1.5s infinite alternate; /* Apply upward animation */
 }
@@ -279,9 +298,11 @@ body, html{
     }
 }
 
+
 /* about section */
 
 .about {
+    margin-top: -180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1005,25 +1026,16 @@ body, html{
 
 /* Container for the L-shape */
 .bottom-right-L-container {
-    display: flex;
-    position:absolute;
-    bottom: 20px; /* Distance from the bottom of the resume */
-    right: 70px; /* Distance from the right of the resume */
+    position: relative;
+    bottom: 200px;
+    left: 460px;
+    width: 200px;
+    height: 200px;
+    border-bottom: 4px solid #a8d18d; /* Green color for the line */
+    border-right: 4px solid #a8d18d;
     
 }
 
-.horizontal-line {
-    width: 200px;
-    height: 4px;
-    background-color: #a8d18d;
-}
-
-.vertical-line {
-    width: 4px;
-    height: 200px;
-    background-color: #a8d18d;
-    margin-top: -196px;
-}
 
 /*work section*/
 
