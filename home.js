@@ -1,40 +1,48 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.navbar ul li a');
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".navbar a");
+    const sections = document.querySelectorAll("section");
 
-    function removeActiveClasses() {
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-    }
-
-    function addActiveClass() {
-        let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    function setActiveLinkOnScroll() {
+        let scrollPosition = window.scrollY + 200; // Adding an offset to trigger early
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
+            const sectionBottom = sectionTop + section.offsetHeight;
 
-            // Check if the current scroll position is within the section bounds
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                const currentId = section.getAttribute('id');
-                removeActiveClasses();
+            // Check if the scroll position is within the section's bounds
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                const currentId = section.getAttribute("id");
 
-                navLinks.forEach(link => {
-                    if (link.getAttribute('href') === `#${currentId}`) {
-                        link.classList.add('active');
-                    }
-                });
+                // Remove active class from all links
+                navLinks.forEach(link => link.classList.remove("active"));
+
+                // Add active class to the link corresponding to the current section
+                const activeLink = document.querySelector(`.navbar a[href="#${currentId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add("active");
+                }
             }
         });
     }
 
-    // Call addActiveClass on scroll
-    window.addEventListener('scroll', addActiveClass);
+    // Trigger scroll detection on scroll
+    window.addEventListener("scroll", setActiveLinkOnScroll);
 
-    // Ensure the active class is also set on page load
-    addActiveClass();
+    // Trigger initial check on page load
+    setActiveLinkOnScroll();
+
+    // Add click event listener to each navbar link
+    navLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            // Remove 'active' class from all links
+            navLinks.forEach(link => link.classList.remove("active"));
+            // Add 'active' class to the clicked link
+            event.target.classList.add("active");
+        });
+    });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const workSection = document.querySelector(".work"); // Select the Work section
@@ -63,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(workSection); // Start observing the Work section
 });
+
 
 
 
